@@ -1,7 +1,7 @@
 version: 2
 models:
   - name: customers
-    description: "{{ docs('customers') }}"
+    description: "{{ doc('customers') }}"
     columns:
       - name: customer_id
         description: Primary key
