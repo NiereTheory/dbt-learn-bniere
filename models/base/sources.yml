@@ -1,0 +1,27 @@
+version: 2
+sources:
+  - name: jaffle_shop
+    database: raw  # Tell dbt to look for the source in the "raw" database
+    schema: jaffle_shop # You wouldn't put your source data in public, would you?
+    tables:
+      - name: customers
+      - name: orders
+
+  - name: stripe
+    
+    database: raw
+    schema: stripe
+    
+    freshness:
+            warn_after: {count: 12, period: hour}
+            error_after: {count: 24, period: hour}
+
+    tables:
+      - name: payment
+        loaded_at_field: _batched_at
+        
+        columns:
+          - name: id
+            tests:
+              - not_null
+    # raw.stripe.payment
