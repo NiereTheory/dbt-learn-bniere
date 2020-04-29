@@ -1,5 +1,14 @@
 version: 2
 models:
+  - name: orders
+    description: a bunch of orders
+    columns:
+      - name: order_id
+        description: this is an order id
+        tests:
+          - unique
+          - not_null
+
   - name: customers
     description: "{{ doc('customers') }}"
     columns:
