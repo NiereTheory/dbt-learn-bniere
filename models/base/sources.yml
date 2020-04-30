@@ -1,5 +1,13 @@
 version: 2
+
 sources:
+  - name: snowplow
+    database: raw
+    loaded_at_field: collector_tstamp
+    freshness:
+      error_after: {count: 1, period: hour}
+    tables:
+      - name: event
   - name: jaffle_shop
     database: raw  # Tell dbt to look for the source in the "raw" database
     schema: jaffle_shop # You wouldn't put your source data in public, would you?
@@ -24,4 +32,11 @@ sources:
           - name: id
             tests:
               - not_null
+        
+          - name: payment_method
+            tests:
+              - accepted_values:
+                  values: ['bank_transfer','coupon','credit_card','gift_card']
+
+
     # raw.stripe.payment

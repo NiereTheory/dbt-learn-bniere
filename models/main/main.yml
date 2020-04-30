@@ -35,6 +35,7 @@ models:
         tests:
           - unique
           - not_null
+          - dbt_utils.at_least_one
       - name: status
         tests:
           - accepted_values:
