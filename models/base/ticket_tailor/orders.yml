@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: ticket_tailor
+    database: raw
+    schema: ticket_tailor
+    tables:
+      - name: orders

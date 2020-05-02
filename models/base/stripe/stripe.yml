@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: stripe
+    database: raw
+    schema: learn_stripe
+    tables:
+      - name: charges
+      - name: refunds
