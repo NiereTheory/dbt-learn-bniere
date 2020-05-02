@@ -1,0 +1,1 @@
+select {{ say_hi() }} as my_col
